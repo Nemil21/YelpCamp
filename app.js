@@ -2,7 +2,7 @@ if(process.env.NODE_ENV !== "production"){
     require('dotenv').config();
 }
 // const dbUrl = process.env.DB_URL  //for production mode
-dbUrl = 'mongodb://127.0.0.1:27017/yelp-camp' // for development mode
+dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:27017/yelp-camp' // for development mode
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
