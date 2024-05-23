@@ -2,7 +2,8 @@ if(process.env.NODE_ENV !== "production"){
     require('dotenv').config();
 }
 // const dbUrl = process.env.DB_URL  //for production mode
-dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:27017/yelp-camp' // for development mode
+const dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:27017/yelp-camp' // for development mode
+const secret = process.env.SECRET || 'thisshouldbeabettersecret!'
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
@@ -27,7 +28,7 @@ const store = MongoStore.create({
     mongoUrl: dbUrl,
     touchAfter: 24 * 60 * 60,
     crypto: {
-        secret: 'thisshouldbeabettersecret!'
+        secret 
     }
 });
 store.on("error", function(e){
@@ -59,7 +60,7 @@ app.use(
 const sessionConfig = {
     store,
     name: 'session',
-    secret: 'thisshouldbeabettersecret!',
+    secret,
     resave: false,
     saveUninitialized: true,
     cookie:{
