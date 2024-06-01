@@ -1,5 +1,15 @@
 <% layout('/layouts/boilerplate') %>
     <div id="cluster-map"></div>
+    <p>
+        <form action="/campgrounds" method="GET" class="form-inline mt-3">
+            <div class="form-group">
+                <input type="text" name="search" class="form-control mb-3" placeholder="Search Campgrounds..." >
+                <div class="text-center">
+                    <button class="btn btn-success">Search</button>
+                </div>
+            </div>
+        </form>
+    </p>
     <h1>All Campgrounds</h1>
     <% for (let campground of campgrounds) {%>
         <div class="card mb-3">
