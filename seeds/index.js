@@ -5,10 +5,10 @@ const Campground = require('../models/camprground')
 
 main().catch(err => console.log(err));
 async function main() {
-    await mongoose.connect(process.env.DB_URL);
+    await mongoose.connect('mongodb+srv://nemilshah212005:2BJSMBx2OmkSJ5hy@cluster0.dyduqbh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
     console.log("Mongo Connection Open!!")
 }
-
+  
 const sample = array=>array[Math.floor(Math.random()*array.length)];
 
 const seedDB = async() =>{
@@ -17,7 +17,7 @@ const seedDB = async() =>{
         const random1000 = Math.floor(Math.random()*1000)
         const price = Math.floor(Math.random()*20)+10;
         const camp = new Campground({
-            author: '664622a143d2433d300cee6b',
+            author: '664d6fa12898f8bed1e90cb7',
             location: `${cities[random1000].city}, ${cities[random1000].state}`,
             title: `${sample(descriptors)} ${sample(places)}`,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, quo! Lorem ipsum dolor sit amet consectetur adipisicing elit.',
